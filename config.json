@@ -1,0 +1,8 @@
+{
+    "containerName": "ZYNITY",
+    "imageName": "ghcr.io/Bwall95/ZYNITY:latest",
+    "UserName": "ZYNITY",
+    "Password": "Password1!",
+    "CYBERSECURITY": "\\\\192.168.1.251\\CYBERSECURITY"
+}
+
