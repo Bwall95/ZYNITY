@@ -15,7 +15,10 @@ RUN Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force; \
     Install-Module -Name PowerShellGet -Force -AllowClobber; \
     Install-Module -Name PSReadLine -Force; \
     Remove-Item -Force -Recurse C:\Windows\Temp\*
-
+    Invoke-WebRequest -Uri https://awscli.amazonaws.com/AWSCLIV2.msi -OutFile AWSCLIV2.msi; \
+    Start-Process msiexec.exe -ArgumentList '/i AWSCLIV2.msi /quiet' -Wait; \
+    Remove-Item AWSCLIV2.msi
+   
     # Configure the local user
 RUN net user /add ZYNITY "Password1!"; \
     net localgroup administrators ZYNITY /add
@@ -36,4 +39,5 @@ RUN Enable-PSRemoting -Force; \
 EXPOSE 5985 5986
 
 # Set PowerShell as the default shell for the container, and run the config script.
-CMD ["powershell.exe", "-NoExit", "-ExecutionPolicy", "Bypass", "/app/config.ps1"]
+CMD ["powershell.exe", "-Command", "Start-Sleep -Seconds 300"]
+
