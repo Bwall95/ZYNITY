@@ -26,7 +26,6 @@ WORKDIR /app
 # Copy the PowerShell script and config.json into the container
 COPY config.ps1 /app/config.ps1
 COPY ZYNITY-Core.ps1 /app/ZYNITY-Core.ps1
-COPY config.json /app/config.json
 
 # Enable PowerShell Remoting (to allow PSSession)
 RUN Enable-PSRemoting -Force; \
